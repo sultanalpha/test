@@ -1,0 +1,119 @@
+<?php
+
+include "../connect.php";
+
+$password = sha1($_POST["password"]) ;
+$email = filterRequest("email");
+//$usersname = filterRequest("usersname");
+//getData("users" , "users_email = ? AND users_password = ? AND users_approve = 1" , array($email , $password));
+
+getData("users" , "users_email = ? AND users_password = ?" , array($email , $password));
+?>
+
+<?php
+
+include "../connect.php";
+
+$username = filterRequest("username") ;
+$password = sha1($_POST["password"]) ;
+$email = filterRequest("email");
+$phone = filterRequest("phone");
+$verfiycode = rand(10000 , 99999);
+$stmt = $con->prepare("SELECT * FROM users WHERE users_email = ? OR users_phone = ? ");
+$stmt->execute(array($email , $phone )) ;
+$count = $stmt->rowCount();
+if($count > 0)
+{
+    printFailure("PHONE OR EMAIL");
+} else{
+    $data = array(
+        "users_name" => $username ,
+        "users_password" => $password ,
+        "users_email" => $email ,
+        "users_phone" => $phone ,
+        "users_verfiycode" => $verfiycode ,
+    );
+    sendEmail($email, "Verfiy Code Orop_Ecommerce App Magdy", "Verfiy Code `$verfiycode` ");
+    insertData("users" , $data);
+}
+?>
+
+<?php
+include "../../connect.php";
+
+$ordersid = filterRequest("id");
+$serid = filterRequest("serid");
+getAllData("ordersdetailsview","cart_serid = $serid AND cart_orders = $ordersid");
+
+
+?>
+
+<?php
+
+include "../../connect.php";
+
+$id = filterRequest("id");
+
+$imagename = filterRequest("imagename");
+
+deleteFile("../../upload/products",$imagename);
+
+deleteData("products", "products_id = $id ");
+?>
+
+<?php
+
+include "../../connect.php";
+
+$table = 'product';
+
+$id = filterRequest("id");
+$name = filterRequest("name");
+
+$namear = filterRequest("namear");
+
+//$serid = filterRequest("serid");
+
+$desc = filterRequest("desc");
+
+$descar = filterRequest("descar");
+
+$count = filterRequest("count");
+$active = filterRequest("active");
+$price = filterRequest("price");
+$catid = filterRequest("catid");
+$discount = filterRequest("discount");
+
+//$datenow = date("datenow");
+$imageold = filterRequest("imageold");
+
+$res =  imageUpload("../../upload/products","files");
+
+if($res == "empty"){
+    $data = array(
+        "products_name" => $name,
+        "products_name_ar" => $namear,
+        "products_desc" => $desc,
+        "products_desc_ar" => $descar,
+        "products_count" => $count,
+        "products_active" => $active,
+        "products_price" => $price,
+        "products_discount" => $discount,
+    );
+}else{
+    deleteFile("../../upload/products", $imageold);
+    $data = array(
+        "products_name" => $name,
+        "products_name_ar" => $namear,
+        "products_desc" => $desc,
+        "products_desc_ar" => $descar,
+        "products_image" => $res,
+        "products_count" => $count,
+        "products_active" => $active,
+        "products_price" => $price,
+        "products_discount" => $discount,
+    );
+}
+
+updateData($table, $data,"product.products_id = $id AND product.categories_id = $catid");
+?>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#songForm").submit(function(event) {
+                event.preventDefault();
+
+                var formData = new FormData($(this)[0]);
+                $.ajax({
+                    url: "addsong.php",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        alert(response);
+                    },
+                    error: function() {
+                        alert("Error adding the song.");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form id="songForm">
+        <input type="text" name="songName" placeholder="Song Name" required>
+        <input type="text" name="songAuthor" placeholder="Song Author" required>
+        <input type="file" name="songFile" required>
+        <input type="submit" value="Add Song">
+    </form>
+</body>
+
+</html>

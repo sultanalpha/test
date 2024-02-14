@@ -1,0 +1,31 @@
+
+.top-content{
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    position: fixed;
+    top: 0px;
+}
+.top-content a{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
+.top-content .item{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(190, 190, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-content .item:hover{
+    background-color: rgb(227, 215, 254);
+}
+
+.body-content{
+    background-color: rgb(186, 157, 255);
+}

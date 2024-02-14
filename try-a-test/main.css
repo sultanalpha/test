@@ -1,0 +1,57 @@
+body {
+    margin: 0px;
+}
+.body-content .send-req {
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.body-content .send-req input{
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid rgb(101, 101, 255);
+    background-color: white;
+}
+
+#submit-btn {
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(150, 150, 255);
+    border: transparent;
+}
+
+.test-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 1005;
+    justify-content: center;
+}
+
+.test-content button {
+    border-radius: 5px;
+    height: 30px;
+    margin: 5px 25%;
+    border: 1px solid black;
+}
+.question-content {
+    font-weight: bold;
+    display: block;
+}
+
+/* .question-content::before {
+    content: "Q" counter(question-counter) ": ";
+    counter-increment: question-counter;
+} */
+.question-content::before {
+    content: "- ";
+}
+
+.question-content::after {
+    content: "؟ ";
+}
+
+.radio-buttons {
+    height: 15px !important;
+    /* width: 20px !important; */
+}

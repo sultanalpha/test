@@ -1,0 +1,1 @@
+ALTER VIEW songinfo2 AS SELECT s.*, artist.artist_name, artist.artist_image, artist.artist_followers, artist.artist_desc FROM songs as s JOIN artist ON s.artist_id = artist.artist_id;

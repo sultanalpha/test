@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url("../fonts/Ubuntu-Regular.ttf");
+}
+
+body{
+    margin: 0px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.floating-action-btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: rgb(190, 190, 255);
+}
+
+.local-lang-change-btn{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 30px;
+    width: 100px;
+    border-radius: 0px 20px 0px 0px;
+    background-color: rgb(190, 190, 255);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
