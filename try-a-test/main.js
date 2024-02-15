@@ -1,5 +1,7 @@
 var question_id, test_id;
 var results = 0;
+var qna = [];
+var questionData;
 var index = 0;
 $(document).ready(function () {
   // Check if token is storaged in localstorage if there then
@@ -8,13 +10,14 @@ $(document).ready(function () {
   if (exam_token != null) {
     getTest(exam_token, index);
   }
-
+  
   // Hide the test contents before entering the test_token
   $("#test-content").hide();
-
+  
+  $("#result-content").hide();
   $("#user-info").hide();
   var isEnglish = checkLanguage();
-
+  
   $("#local-lang-change-btn").click(function () {
     if (isEnglish) {
       setLang("local/ar_YE.json");
@@ -49,6 +52,7 @@ $(document).ready(function () {
   // To stop the test and refreshing the site
   $("#stop-test").click(function (e) {
     e.preventDefault();
+    endSession();
     removeLocalTokens();
     window.location.reload();
   });
@@ -56,6 +60,7 @@ $(document).ready(function () {
   // Check in server if the answer is correct or no
   $("#send-answer").click(function (e) {
     e.preventDefault();
+    console.log(qna);
 
     var checkedRadioButtons = $('input[name="answer"]:checked');
 
@@ -67,6 +72,7 @@ $(document).ready(function () {
         } else if (selectedValue === "Wrong") {
           sendAnswer(0, question_id, test_id);
         }
+        $('input[type="radio"]').prop("checked", false);
       }
     } else if (checkedRadioButtons.length === 0) {
       console.log("Both radio buttons are not checked.");
@@ -111,12 +117,14 @@ function setTest(question, index) {
     $("#question-content").text(question[index]["question_title"]);
     question_id = question[index]["question_id"];
     test_id = question[index]["test_id"];
+    questionData = question[index];
 
     $("#send-req").hide();
     $("#test-content").show();
   } else {
     $("#test-content").hide();
     $("#result-content").show();
+    showResultsData();
     removeLocalTokens();
     $("#result-txt").text("You have answered: " + results + " correctly");
   }
@@ -137,7 +145,19 @@ function sendAnswer(answer, question_id, test_id) {
       if (respond["Status"] == "Success") {
         if (respond["Message"] == "Vaild answer") {
           results++;
+          qna.push({
+            question_title: questionData["question_title"],
+            question_answer: true,
+            user_answer: answer == 1 ? true : false,
+          });
+        } else {
+          qna.push({
+            question_title: questionData["question_title"],
+            question_answer: false,
+            user_answer: answer == 1 ? true : false,
+          });
         }
+
         index++;
         setTest(question, index);
       } else {
@@ -150,4 +170,31 @@ function removeLocalTokens() {
   localStorage.removeItem("exam_token");
   localStorage.removeItem("questions");
   localStorage.removeItem("exam_token");
+}
+
+function endSession() {
+  $.ajax({
+    type: "GET",
+    url: "/test/apis/exam/end_exam_session/",
+    success: function (response) {},
+  });
+}
+
+function showResultsData() {
+qna.forEach(e => {
+  if(e['question_answer']) {
+    $("#results-details").append('<div class="result-item correct_answer">\
+    \
+    <p class="result-item-txt">' + e['question_title'] +'</p>\
+    <p>You answered: ' + e['user_answer'] + '</p>\
+    ');
+  } else {
+    $("#results-details").append('<div class="result-item wrong_answer">\
+    \
+    <p class="result-item-txt">' + e['question_title'] +'</p>\
+    <p>You answered: ' + e['user_answer'] + '</p>\
+    <p>The correct answer is: ' + !e['user_answer'] + '</p>\
+    ');
+  }
+});
 }

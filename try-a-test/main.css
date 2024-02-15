@@ -1,42 +1,45 @@
+* {
+  color: white;
+}
 body {
-    margin: 0px;
+  margin: 0px;
 }
 .body-content .send-req {
-    padding: 10px 0px;
-    text-align: center;
+  padding: 10px 0px;
+  text-align: center;
 }
 
-.body-content .send-req input{
-    height: 50px;
-    border-radius: 5px;
-    border: 1px solid rgb(101, 101, 255);
-    background-color: white;
+.body-content .send-req input {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid rgb(101, 101, 255);
+  background-color: white;
 }
 
 #submit-btn {
-    height: 50px;
-    border-radius: 5px;
-    background-color: rgb(150, 150, 255);
-    border: transparent;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgb(150, 150, 255);
+  border: transparent;
 }
 
 .test-content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 1005;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 1005;
+  justify-content: center;
 }
 
 .test-content button {
-    border-radius: 5px;
-    height: 30px;
-    margin: 5px 25%;
-    border: 1px solid black;
+  border-radius: 5px;
+  height: 30px;
+  margin: 5px 25%;
+  border: 1px solid black;
 }
 .question-content {
-    font-weight: bold;
-    display: block;
+  font-weight: bold;
+  display: block;
 }
 
 /* .question-content::before {
@@ -44,14 +47,49 @@ body {
     counter-increment: question-counter;
 } */
 .question-content::before {
-    content: "- ";
+  content: "- ";
 }
 
 .question-content::after {
-    content: "؟ ";
+  content: "؟ ";
 }
 
 .radio-buttons {
-    height: 15px !important;
-    /* width: 20px !important; */
+  height: 15px !important;
+  /* width: 20px !important; */
+}
+.result-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result-content .results-details {
+  background-color: rgba(255, 255, 255, 0.111);
+  width: 80%;
+  border-radius: 5px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-content .results-details .result-item {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  display: grid;
+  place-content: center;
+}
+.result-content .results-details .result-item .result-item-txt::before {
+content: "- ";
+}
+.result-content .results-details .correct_answer {
+  background-color: rgba(144, 238, 144, 0.6);
+}
+
+.result-content .results-details .wrong_answer {
+  background-color: rgba(238, 144, 144, 0.6);
+}
+.result-content .results-details .result-item p {
+  margin: 0px;
 }
