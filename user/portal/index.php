@@ -28,16 +28,21 @@ $_SESSION['isLoggedin'] = false;
   <div class="body-content" style="margin-top: 50px; padding: 10px 0px;">
     <h1 id="login_text"></h1>
     <!-- <form id="login-form"> -->
-      <div id="login-form">
+    <div id="login-form">
+      <div class="inputEmail">
         <input type="text" id="email-placeholder" placeholder="">
-        <input type="password" id="password-placeholder" placeholder="">
-        <input type="hidden" id="csrf-token" value="<?php echo $csrf_token_var ?>">
-        <p id="server_txt"></p>
-        <button id="login-btn">
-          <p id="login-btn_txt"></p>
-        </button>
-        <p>Dont have account? <a href="../register/">Register now</a></p>
       </div>
+      <div class="inputPassword">
+        <input type="password" id="password-placeholder" placeholder="">
+        <img src="/test/icons/password/icons8-hide-password-24.png" height="24" width="24" id="password-visibility">
+      </div>
+      <input type="hidden" id="csrf-token" value="<?php echo $csrf_token_var ?>">
+      <p id="server_txt"></p>
+      <button id="login-btn">
+        <p id="login-btn_txt"></p>
+      </button>
+      <p>Dont have account? <a href="../register/">Register now</a></p>
+    </div>
     <!-- </form> -->
   </div>
 

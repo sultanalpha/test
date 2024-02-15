@@ -12,10 +12,23 @@
     flex-direction: column;
     margin: 0px 50px;
 }
-.body-content #login-form input{
-    margin-top: 10px;
+
+.body-content #login-form .inputPassword {
+    position: relative;
+}
+.body-content #login-form .inputPassword img{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 11%;
+}
+.body-content #login-form .inputEmail, .body-content #login-form .inputPassword {
+    width: 100%;
+}
+.body-content #login-form .inputEmail input, .body-content #login-form .inputPassword input{
+    /* margin-top: 10px; */
     border-radius: 5px;
-    width: 90%;
+    width: 75%;
     border: 1px solid black;
     height: 30px;
     padding: 0px 10px;

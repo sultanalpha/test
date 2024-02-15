@@ -67,6 +67,7 @@
             </div>
           </a> -->
     </div>
+    <p id="copyright-txt">Copyrights &copy; reversed to SultanKingGD</p>
   </div>
   <div class="navigation-empty" id="navigation-empty"></div>
 </div>

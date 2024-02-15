@@ -60,6 +60,7 @@ if (!$isLoggedin) {
 
     </div>
     <div class="result-content" id="result-content">
+      <h1>Results</h1>
       <label id="result-txt"></label>
       <div class="results-details" id="results-details">
         <!-- <div class="result-item">

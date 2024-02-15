@@ -11,12 +11,17 @@ if (!checkCSRF($received_csrf_token)) {
 $data = json_decode(file_get_contents('php://input'), true);
 $username = $data['username'] ?? null;
 $password = $data['password'] ?? null;
-$user_email = $data['email'] ?? null;
+$user_email = strtolower($data['email']) ?? null;
 
 $confirm_password = $data['confirm_password'] ?? null;
 // $public_ip = $data['public_ip'] ?? null;
 // $ipAddress = curl_get_contents('https://api.ipify.org');
 $ipAddress = $_SERVER['REMOTE_ADDR'];
+
+if(checkNigga($user_email)) {
+    echo_json(400, "Bad request bro", "No nigga bro please :) you are not nigga");
+    return;
+}
 
 if ($username != null && $password != null && $user_email != null && $confirm_password != null) {
     if (checkLength($username) && checkLength($password) && checkLength(($confirm_password))) {
@@ -92,4 +97,15 @@ if ($username != null && $password != null && $user_email != null && $confirm_pa
     }
 } else {
     echo_json(400, "Very bad request!", "Some data cannot be empty!.");
+}
+
+
+function checkNigga($string)
+{
+    $specificWord = "nigga";
+    if (strpos($string, $specificWord) !== false) {
+        return true;
+    } else {
+        return false;
+    }
 }
