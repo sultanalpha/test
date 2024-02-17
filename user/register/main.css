@@ -6,24 +6,6 @@
 .body-content{
     text-align: center;
 }
-/* .body-content #register-form{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0px 50px;
-}
-.body-content #register-form input{
-    margin-top: 10px;
-    border-radius: 5px;
-    width: 90%;
-    border: 1px solid black;
-    height: 30px;
-    padding: 0px 10px;
-}
-.body-content #register-form button{
-    margin-top: 20px;
-    width: 75%;
-} */
 
 .body-content{
     display: flex;
@@ -31,9 +13,13 @@
     flex-direction: column;
     padding: 0px 50px;
     margin-top: 50px;
+
 }
-.body-content input{
-    margin-top: 10px;
+.body-content .input-data{
+    width: 100%;
+}
+.body-content .input-data input{
+    /* margin-top: 10px; */
     border-radius: 5px;
     width: 90%;
     border: 1px solid black;
@@ -43,4 +29,13 @@
 .body-content button{
     margin-top: 20px;
     width: 75%;
+}
+
+.body-content .input-password, .body-content .input-confirmpassword {
+    position: relative;
+}
+.body-content .input-password img, .body-content .input-confirmpassword img {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }

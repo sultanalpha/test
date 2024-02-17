@@ -28,16 +28,26 @@ $_SESSION['isLoggedin'] = false;
   <div class="body-content">
     <h1 id="register_text"></h1>
     <!-- <form id="register-form"> -->
-    <input type="email" id="email-placeholder" placeholder="">
-    <input type="username" id="username-placeholder"  placeholder="">
-    <input type="password" id="password-placeholder" placeholder="">
-    <input type="password" id="confirm_password-placeholder" placeholder="">
-        <input type="hidden" id="csrf-token" value="<?php echo $csrf_token_var ?>">
+    <div class="input-email input-data">
+      <input type="email" id="email-placeholder" placeholder="">
+    </div>
+    <div class="input-username input-data">
+      <input type="username" id="username-placeholder" placeholder="">
+    </div>
+    <div class="input-password input-data">
+      <input type="password" id="password-placeholder" placeholder="">
+        <img src="/test/icons/password/icons8-hide-password-24.png" height="24" width="24" id="password-visibility">
+    </div>
+    <div class="input-confirmpassword input-data">
+      <input type="password" id="confirm_password-placeholder" placeholder="">
+        <img src="/test/icons/password/icons8-hide-password-24.png" height="24" width="24" id="password-visibility">
+    </div>
+    <input type="hidden" id="csrf-token" value="<?php echo $csrf_token_var ?>">
     <p id="server_txt"></p>
     <button id="register-btn">
       <p id="register-btn_txt"></p>
     </button>
-      <p>Already have account? <a href="../portal/">Login now</a></p>
+    <p>Already have account? <a href="../portal/">Login now</a></p>
     <!-- </form> -->
   </div>
 

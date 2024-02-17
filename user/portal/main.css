@@ -13,19 +13,23 @@
     margin: 0px 50px;
 }
 
-.body-content #login-form .inputPassword {
+0/* .body-content .input-email #input-form .input-data {
+
+} */
+
+.body-content #login-form .input-password {
     position: relative;
 }
-.body-content #login-form .inputPassword img{
+.body-content #login-form .input-password img{
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    right: 11%;
+    /* right: 11%; */
 }
-.body-content #login-form .inputEmail, .body-content #login-form .inputPassword {
+.body-content #login-form .input-email, .body-content #login-form .input-password {
     width: 100%;
 }
-.body-content #login-form .inputEmail input, .body-content #login-form .inputPassword input{
+.body-content #login-form .input-email input, .body-content #login-form .input-password input{
     /* margin-top: 10px; */
     border-radius: 5px;
     width: 75%;

@@ -3,6 +3,7 @@ var results = 0;
 var qna = [];
 var questionData;
 var index = 0;
+let session_id;
 $(document).ready(function () {
   // Check if token is storaged in localstorage if there then
   // send request to the server to get the questions
@@ -96,8 +97,9 @@ function getTest(test_token, index) {
     data: json,
     contentType: "application/json",
     success: function (response) {
-      var questions = JSON.parse(response);
-      question = questions["data"];
+      var respond = JSON.parse(response);
+      question = respond["data"];
+      session_id = respond["Session_id"];
       setTest(question, index);
       localStorage.setItem("exam_token", test_token);
     },
@@ -140,6 +142,9 @@ function sendAnswer(answer, question_id, test_id) {
       question_id +
       "&test_id=" +
       test_id,
+    headers: {
+      "session-id": session_id,
+    },
     success: function (response) {
       var respond = JSON.parse(response);
       if (respond["Status"] == "Success") {

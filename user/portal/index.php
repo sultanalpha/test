@@ -29,10 +29,10 @@ $_SESSION['isLoggedin'] = false;
     <h1 id="login_text"></h1>
     <!-- <form id="login-form"> -->
     <div id="login-form">
-      <div class="inputEmail">
+      <div class="input-email input-data">
         <input type="text" id="email-placeholder" placeholder="">
       </div>
-      <div class="inputPassword">
+      <div class="input-password input-data">
         <input type="password" id="password-placeholder" placeholder="">
         <img src="/test/icons/password/icons8-hide-password-24.png" height="24" width="24" id="password-visibility">
       </div>
