@@ -13,10 +13,6 @@
     margin: 0px 50px;
 }
 
-0/* .body-content .input-email #input-form .input-data {
-
-} */
-
 .body-content #login-form .input-password {
     position: relative;
 }
@@ -32,7 +28,7 @@
 .body-content #login-form .input-email input, .body-content #login-form .input-password input{
     /* margin-top: 10px; */
     border-radius: 5px;
-    width: 75%;
+    width: 90%;
     border: 1px solid black;
     height: 30px;
     padding: 0px 10px;

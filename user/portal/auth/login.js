@@ -1,23 +1,44 @@
 function loginRequest(username, password, isEmail, csrf_token) {
-  var json;
-  if (isEmail) {
-    json = JSON.stringify({
-      email: username,
-      password: password,
-    });
-  } else {
-    json = JSON.stringify({
-      username: username,
-      password: password,
-    });
-  }
+  let json = isEmail
+    ? JSON.stringify({
+        email: username,
+        password: password,
+      })
+    : JSON.stringify({
+        username: username,
+        password: password,
+      });
 
-  console.log(json);
+  $.ajax({
+    type: "GET",
+    url: "/test/apis/auth/login/get_public_token/",
+    success: function (response) {
+      let respond = JSON.parse(response);
+      console.log(respond["public_token"]);
+      try {
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey(respond["public_token"]);
+        var encrypted = encrypt.encrypt(json);
+        // console.log(encrypted);
+        encrypt_2(encrypted, csrf_token);
+      } catch (error) {
+        console.error("Encryption Error: ", error);
+      }
+    },
+  });
+}
+
+function encrypt_2(encryptedData, csrf_token) {
+  let encryptedDataJson = JSON.stringify({
+    enc_: encryptedData,
+  });
+
+  console.log(encryptedDataJson);
 
   $.ajax({
     type: "POST",
     url: "/test/apis/auth/login/",
-    data: json,
+    data: encryptedDataJson,
     headers: {
       "X-CSRFToken": csrf_token,
     },

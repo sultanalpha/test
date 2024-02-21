@@ -1,7 +1,8 @@
+var isPasswordShow = false;
+var isConfirmPasswordShow = false;
+
 $(document).ready(function () {
   var isEnglish = checkLanguage();
-
-
 
   $("#local-lang-change-btn").click(function () {
     if (isEnglish) {
@@ -32,12 +33,68 @@ $(document).ready(function () {
       success: function (data) {
         const publicIP = data.ip;
         var csrf_token = $("#csrf-token").val();
-        registerRequest(email, username, password, confirm_password, publicIP, csrf_token);
+        registerRequest(
+          email,
+          username,
+          password,
+          confirm_password,
+          publicIP,
+          csrf_token
+        );
       },
       error: function (error) {
         reject(error);
       },
     });
+  });
+  
+  $("#password-visibility").click(function (e) {
+    console.log("clicked");
+    e.preventDefault();
+    if (!isPasswordShow) {
+      changeVisibility(
+        this,
+        "/test/icons/password/icons8-show-password-24.png",
+        "text",
+        "#password-placeholder"
+      );
+    } else {
+      changeVisibility(
+        this,
+        "/test/icons/password/icons8-hide-password-24.png",
+        "password",
+        "#password-placeholder"
+      );
+    }
+    isPasswordShow = !isPasswordShow;
+  });
 
+  $("#confirm-password-visibility").click(function (e) {
+    console.log("clicked");
+    e.preventDefault();
+    if (!isConfirmPasswordShow) {
+      changeVisibility(
+        this,
+        "/test/icons/password/icons8-show-password-24.png",
+        "text",
+        "#confirm_password-placeholder"
+      );
+    } else {
+      changeVisibility(
+        this,
+        "/test/icons/password/icons8-hide-password-24.png",
+        "password",
+        "#confirm_password-placeholder"
+      );
+    }
+    isConfirmPasswordShow = !isConfirmPasswordShow;
   });
 });
+
+function changeVisibility(selector, imagePath, type, inputID) {
+  $(selector).attr({
+    src: imagePath,
+  });
+
+  $(inputID).attr("type", type);
+}

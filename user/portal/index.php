@@ -14,6 +14,7 @@ $_SESSION['isLoggedin'] = false;
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <script src="../../libraries/jquery_3.7.1.js"></script>
+  <script src="../../libraries/jsencrypt.min.js"></script>
   <script src="locals.js"></script>
   <script src="main.js"></script>
   <script src="auth/login.js"></script>

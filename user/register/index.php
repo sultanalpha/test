@@ -40,7 +40,7 @@ $_SESSION['isLoggedin'] = false;
     </div>
     <div class="input-confirmpassword input-data">
       <input type="password" id="confirm_password-placeholder" placeholder="">
-        <img src="/test/icons/password/icons8-hide-password-24.png" height="24" width="24" id="password-visibility">
+        <img src="/test/icons/password/icons8-hide-password-24.png" height="24" width="24" id="confirm-password-visibility">
     </div>
     <input type="hidden" id="csrf-token" value="<?php echo $csrf_token_var ?>">
     <p id="server_txt"></p>

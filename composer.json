@@ -1,5 +1,6 @@
 {
     "require": {
-        "matomo/device-detector": "*"
+        "matomo/device-detector": "*",
+        "phpseclib/phpseclib": "*"
     }
 }
