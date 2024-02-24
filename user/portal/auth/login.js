@@ -1,26 +1,29 @@
 function loginRequest(username, password, isEmail, csrf_token) {
   let json = isEmail
-    ? JSON.stringify({
-        email: username,
-        password: password,
-      })
-    : JSON.stringify({
-        username: username,
-        password: password,
-      });
-
+  ? JSON.stringify({
+    email: username,
+    password: password,
+  })
+  : JSON.stringify({
+    username: username,
+    password: password,
+  });
+  
   $.ajax({
     type: "GET",
     url: "/test/apis/auth/login/get_public_token/",
+    headers: {
+      "X-CSRFToken": csrf_token,
+    },
     success: function (response) {
       let respond = JSON.parse(response);
       console.log(respond["public_token"]);
       try {
         var encrypt = new JSEncrypt();
         encrypt.setPublicKey(respond["public_token"]);
-        var encrypted = encrypt.encrypt(json);
+        var encrypted = encrypt.encrypt(password);
         // console.log(encrypted);
-        encrypt_2(encrypted, csrf_token);
+        SendLoginRequest(encrypted, csrf_token, username, isEmail);
       } catch (error) {
         console.error("Encryption Error: ", error);
       }
@@ -28,12 +31,13 @@ function loginRequest(username, password, isEmail, csrf_token) {
   });
 }
 
-function encrypt_2(encryptedData, csrf_token) {
+function SendLoginRequest(encryptedData, csrf_token, username, isEmail) {
+  $("#server_txt").hide();
   let encryptedDataJson = JSON.stringify({
     enc_: encryptedData,
+    username: isEmail ? "" : username,
+    email: isEmail ? username : "",
   });
-
-  console.log(encryptedDataJson);
 
   $.ajax({
     type: "POST",
@@ -46,6 +50,8 @@ function encrypt_2(encryptedData, csrf_token) {
       var statusCode = jqXHR.status;
       var response = JSON.parse(jqXHR.responseText);
       if (statusCode == 200) {
+        $("#server_txt").show();
+        $("#server_txt").css("background-color", "green");
         $("#server_txt").text(response["Message"]);
         if (response["token"] != null) {
           localStorage.setItem("token", response["token"]);
@@ -58,6 +64,7 @@ function encrypt_2(encryptedData, csrf_token) {
       }
     },
     error: function (response, textStatus, jqXHR) {
+      $("#server_txt").show();
       $("#server_txt").text(JSON.parse(response.responseText)["Message"]);
     },
   });

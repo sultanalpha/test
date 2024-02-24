@@ -27,9 +27,9 @@ $_SESSION['isLoggedin'] = false;
   include("$server_root/test/bootstrap/bottom_btns/bottom_btns.html");
   ?>
   <div class="body-content" style="margin-top: 50px; padding: 10px 0px;">
-    <h1 id="login_text"></h1>
     <!-- <form id="login-form"> -->
-    <div id="login-form">
+    <div id="login-form" class="login-form">
+      <h1 id="login_text"></h1>
       <div class="input-email input-data">
         <input type="text" id="email-placeholder" placeholder="">
       </div>
@@ -38,9 +38,9 @@ $_SESSION['isLoggedin'] = false;
         <img src="/test/icons/password/icons8-hide-password-24.png" height="24" width="24" id="password-visibility">
       </div>
       <input type="hidden" id="csrf-token" value="<?php echo $csrf_token_var ?>">
-      <p id="server_txt"></p>
-      <button id="login-btn">
-        <p id="login-btn_txt"></p>
+      <p id="server_txt" class="server_txt"></p>
+      <button id="login-btn" class="login-btn">
+        <p id="login-btn_txt" style="color: black;"></p>
       </button>
       <p>Dont have account? <a href="../register/">Register now</a></p>
     </div>

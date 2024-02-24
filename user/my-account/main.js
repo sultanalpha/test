@@ -24,7 +24,16 @@ $(document).ready(function () {
       }
       isEnglish = !isEnglish;
     });
+    setUserInfo();
+    
   
     // getUserInfo();
   });
   
+
+  function setUserInfo() {
+    let userEmail = localStorage.getItem("useremail");
+    let userName = localStorage.getItem("username");
+    $("#user-email").text(userEmail);
+    $("#user-name").text(userName);
+  }

@@ -12,9 +12,8 @@ if (!checkCSRF($received_csrf_token)) {
 $rawData = file_get_contents('php://input');
 $dataJson = json_decode($rawData, true);
 
-$encData = $dataJson['enc_'] ?? null;
-
-if ($encData != null) {
+if (isset($dataJson['enc_'])) {
+    $encData = $dataJson['enc_'];
     $privateKey = $_SESSION['private_rsa_key'];
     if (!openssl_private_decrypt(base64_decode($encData), $decrypted, $privateKey)) {
         $error = openssl_error_string();
@@ -23,9 +22,10 @@ if ($encData != null) {
 
         $jsonObj = json_decode($decrypted);
 
-        $username = $jsonObj->username ?? null;
-        $password = $jsonObj->password ?? null;
-        $email = $jsonObj->email ?? null;
+        $username = $dataJson['username'] ?? null;
+        // $password = $jsonObj->password ?? null;
+        $password = $decrypted ?? null;
+        $email = $dataJson['email'] ?? null;
 
         if ($username != null || $email != null) {
             if ($password != null) {

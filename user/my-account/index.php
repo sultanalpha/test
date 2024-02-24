@@ -15,8 +15,8 @@ if (!$isLoggedin) {
   <title>Your account</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <script src='main.js'></script>
   <script src="../../libraries/jquery_3.7.1.js"></script>
+  <script src='main.js'></script>
 </head>
 
 <body>
@@ -26,6 +26,17 @@ if (!$isLoggedin) {
   include("$server_root/test/bootstrap/bottom_btns/bottom_btns.html");
   include("$server_root/test/bootstrap/top_content/top_content.html");
   ?>
+
+  <div class="bodyContent">
+    <!-- <h2 id="user-email"> Here user email displayed </h2> -->
+    <!-- <h2 id="user-name"> Here user email displayed </h2> -->
+    <button>Change Email</button>
+    <button>Change Username</button>
+    <button>Change Password</button>
+    <h2>Change password: </h2>
+    <input type="password" placeholder="New password" id="new-password">
+    <input type="password" placeholder="Confirm new password" id="confirm-new-password">
+  </div>
 </body>
 <script src="../../locals.js"></script>
 <script src="../../check_langs.js"></script>

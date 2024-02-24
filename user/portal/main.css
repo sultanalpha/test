@@ -1,39 +1,62 @@
-.top-content{
-    height: 50px;
-    background-color: rgb(190, 190, 255);
-    display: flex;
-}
-.body-content{
-    text-align: center;
-}
-.body-content #login-form{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0px 50px;
+* {
+  color: white;
 }
 
-.body-content #login-form .input-password {
-    position: relative;
+.top-content {
+  height: 50px;
+  background-color: rgb(190, 190, 255);
+  display: flex;
 }
-.body-content #login-form .input-password img{
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    /* right: 11%; */
+.body-content {
+  text-align: center;
 }
-.body-content #login-form .input-email, .body-content #login-form .input-password {
-    width: 100%;
+.body-content #login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 50px;
 }
-.body-content #login-form .input-email input, .body-content #login-form .input-password input{
-    /* margin-top: 10px; */
-    border-radius: 5px;
-    width: 90%;
-    border: 1px solid black;
-    height: 30px;
-    padding: 0px 10px;
+
+/* To put the eye icon for show and hide password */
+.body-content .login-form .input-password {
+  position: relative;
 }
-.body-content #login-form button{
-    margin-top: 20px;
-    width: 75%;
+.body-content .login-form .input-password img {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.body-content .login-form .input-email,
+.body-content .login-form .input-password {
+  width: 100%;
+}
+.body-content .login-form .input-email input,
+.body-content .login-form .input-password input {
+  margin: 10px 0px;
+  border-radius: 5px;
+  width: 75%;
+  border: 1px solid black;
+  height: 30px;
+  padding: 0px 10px;
+  color: black;
+}
+.body-content .login-form .login-btn {
+  margin-top: 20px;
+  width: 60%;
+  background-color: #dddddd;
+  border: #dddddd;
+}
+
+.login-form {
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.server_txt {
+  padding: 10px 5px;
+  background-color: red;
+  color: black;
+  border-radius: 5px;
+  display: none;
 }

@@ -24,6 +24,9 @@ if (!$isLoggedin) {
       $("#logout-btn").click(function(e) {
         e.preventDefault();
         localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        localStorage.removeItem("useremail");
+        localStorage.removeItem("createdtime");
         window.location = "../../";
       });
     });

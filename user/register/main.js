@@ -25,29 +25,29 @@ $(document).ready(function () {
     var username = $("#username-placeholder").val();
     var password = $("#password-placeholder").val();
     var confirm_password = $("#confirm_password-placeholder").val();
+    var csrf_token = $("#csrf-token").val();
 
-    $.ajax({
-      url: "https://api.ipify.org?format=json",
-      method: "GET",
-      dataType: "json",
-      success: function (data) {
-        const publicIP = data.ip;
-        var csrf_token = $("#csrf-token").val();
-        registerRequest(
-          email,
-          username,
-          password,
-          confirm_password,
-          publicIP,
-          csrf_token
-        );
-      },
-      error: function (error) {
-        reject(error);
-      },
-    });
+    registerRequest(
+      email,
+      username,
+      password,
+      confirm_password,
+      null,
+      csrf_token
+    );
+    // $.ajax({
+    //   url: "https://api.ipify.org?format=json",
+    //   method: "GET",
+    //   dataType: "json",
+    //   success: function (data) {
+    //     const publicIP = data.ip;
+    //   },
+    //   error: function (error) {
+    //     reject(error);
+    //   },
+    // });
   });
-  
+
   $("#password-visibility").click(function (e) {
     console.log("clicked");
     e.preventDefault();

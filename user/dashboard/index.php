@@ -2,7 +2,7 @@
 session_start();
 $isLoggedin = $_SESSION['isLoggedin'] ?? false;
 if (!$isLoggedin) {
-  session_destroy();
+    session_destroy();
 }
 ?>
 
@@ -19,7 +19,6 @@ if (!$isLoggedin) {
     <script src='main.js'></script>
     <script src='./locals.js'></script>
     <script>
-    
         $(document).ready(function() {
             $("#logout-btn").click(function(e) {
                 e.preventDefault();
@@ -28,6 +27,9 @@ if (!$isLoggedin) {
                     url: "/test/apis/destory_session.php",
                     success: function(response) {
                         localStorage.removeItem("token");
+                        localStorage.removeItem("username");
+                        localStorage.removeItem("useremail");
+                        localStorage.removeItem("createdtime");
                         window.location = "../../";
                     }
                 });
@@ -46,16 +48,22 @@ if (!$isLoggedin) {
 
     <div class="body-content" style="margin-top: 50px;">
         <div class="create-test" id="create-test">
-            <h3>Create a test</h3>
+            <h3 id="create-a-test">Create a test</h3>
         </div>
 
-        
+        <h3 id="your-tests" style="margin: 5px; "> <!-- Your tests: --></h3>
+        <div class="owned-tests" id="owned-tests">
+            <!-- Here display all the user tests -->
+        </div>
+
+
 
         <div class="create-test-body" id="create-test-body">
             <div class="create-test-dialog" id="create-test-dialog">
 
             </div>
         </div>
+
         <button id="logout-btn" style="margin-top: 50px;">logout</button>
 
         <!-- <input type="text" class="test-placeholder" placeholder="Test name"> -->

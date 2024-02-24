@@ -12,6 +12,11 @@ $(document).ready(function () {
         right: "-1000px",
         left: "",
       });
+
+      $("#copyright-txt").css({
+        right: "10px",
+        left: "",
+      });
     } else {
       setLang("local/en_US.json");
       coreSetLang(true);
@@ -19,6 +24,11 @@ $(document).ready(function () {
       localStorage.setItem("local", "EN");
       $("#navigation-drawer").css({
         left: "-1000px",
+        right: "",
+      });
+
+      $("#copyright-txt").css({
+        left: "10px",
         right: "",
       });
     }

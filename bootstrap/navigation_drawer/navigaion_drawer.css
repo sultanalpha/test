@@ -9,8 +9,8 @@
 }
 
 .navigation-menu {
-    width: 75%;
-    background-color: rgb(167, 167, 255);
+  width: 75%;
+  background-color: rgb(167, 167, 255);
 }
 
 .navigation-menu .user-details {
@@ -38,18 +38,17 @@
   box-sizing: border-box;
   padding: 0px 15px;
 }
-.navigation-menu .navigation-items a{
+.navigation-menu .navigation-items a {
   text-decoration: none;
   color: white;
 }
 
 .navigation-empty {
-    width: 25%;
+  width: 25%;
 }
 
 #copyright-txt {
   position: absolute;
   bottom: 3px;
-  left: 10px;
   font-size: 8px;
 }
