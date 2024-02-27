@@ -1,9 +1,9 @@
-function setLang(lang_path) {
-  $.getJSON(lang_path, function (data) {
+async function setLang(lang_path) {
+  await $.getJSON(lang_path, function (data) {
     $("#try-a-test_txt").text(data["Try-a-test"]);
     $("#home_txt").text(data["Home"]);
     $("#about-us_txt").text(data["About-us"]);
-    if(localStorage.getItem("token") == null) {
+    if (localStorage.getItem("token") == null) {
       $("#login_txt").text(data["Login"]);
     }
     $("#welcome_txt").text(data["Welcome-msg"]);

@@ -2,10 +2,11 @@ $(document).ready(function () {
   $("#user-info").hide();
   var isEnglish = checkLanguage();
 
-  $("#local-lang-change-btn").click(function () {
+  $("#local-lang-change-btn").click(async function () {
+    $("#loading-screen").css("display", "grid");
     if (isEnglish) {
-      setLang("local/ar_YE.json");
-      coreSetLang(false);
+      await setLang("local/ar_YE.json");
+      await coreSetLang(false);
       $("body").attr("dir", "rtl");
       localStorage.setItem("local", "AR");
       $("#navigation-drawer").css({
@@ -18,8 +19,8 @@ $(document).ready(function () {
         left: "",
       });
     } else {
-      setLang("local/en_US.json");
-      coreSetLang(true);
+      await setLang("local/en_US.json");
+      await coreSetLang(true);
       $("body").attr("dir", "ltr");
       localStorage.setItem("local", "EN");
       $("#navigation-drawer").css({
@@ -33,6 +34,7 @@ $(document).ready(function () {
       });
     }
     isEnglish = !isEnglish;
+    $("#loading-screen").css("display", "none");
   });
 
   $("#navigation-drawer-btn").click(function () {

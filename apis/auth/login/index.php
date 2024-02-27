@@ -4,10 +4,10 @@ include "../../jwt/generate-jwt.php";
 include "../../jwt/check-csrf.php";
 
 
-$received_csrf_token = $_SERVER['HTTP_X_CSRFTOKEN'] ?? null;
-if (!checkCSRF($received_csrf_token)) {
-    return;
-}
+// $received_csrf_token = $_SERVER['HTTP_X_CSRFTOKEN'] ?? null;
+// if (!checkCSRF($received_csrf_token)) {
+//     return;
+// }
 
 $rawData = file_get_contents('php://input');
 $dataJson = json_decode($rawData, true);

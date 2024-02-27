@@ -10,7 +10,7 @@
 .body-content {
   text-align: center;
 }
-.body-content #login-form {
+.body-content .login-form {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -18,20 +18,34 @@
 }
 
 /* To put the eye icon for show and hide password */
-.body-content .login-form .input-password {
+.body-content .login-form .input-data {
   position: relative;
 }
+
+.body-content .login-form .input-data label {
+  position: absolute;
+  top: 50%;
+  /* left: 13%; */
+  transform: translateY(-50%);
+  transition: 0.2s ease-out;
+  color: black;
+  pointer-events: none;
+}
+.body-content .login-form .input-data input:not(:placeholder-shown) + label {
+  top: 0px;
+  font-size: 12px;
+  color: #888;
+}
+
 .body-content .login-form .input-password img {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
 }
-.body-content .login-form .input-email,
-.body-content .login-form .input-password {
+.body-content .login-form .input-data {
   width: 100%;
 }
-.body-content .login-form .input-email input,
-.body-content .login-form .input-password input {
+.body-content .login-form .input-data input {
   margin: 10px 0px;
   border-radius: 5px;
   width: 75%;
@@ -49,14 +63,12 @@
 
 .login-form {
   padding: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #dddddd;
   backdrop-filter: blur(10px);
 }
 
 .server_txt {
-  padding: 10px 5px;
-  background-color: red;
-  color: black;
-  border-radius: 5px;
+  padding: 0px 5px;
+  color: red;
   display: none;
 }

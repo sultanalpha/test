@@ -40,7 +40,9 @@ if ($jwt_token != null && $public_token_req != null) {
                     
                 $jwt = generate_jwt(json_decode($payload, true), $headers, true);
                 if ($jwt != null) {
-                    echo_json(200, "Success", "Updated successfully", array("token", $jwt));
+                    session_start();
+                    $_SESSION['isLoggedin'] = true;
+                    echo_json(200, "Success", "Updated successfully ", array("token", $jwt));
                 } else {
                     http_response_code(501);
                     echo json_encode(array("Code" => 501, "Status" => "Error", "Error code" => "772003x", "Message" => "Something went wrong!"));

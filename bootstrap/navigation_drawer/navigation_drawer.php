@@ -4,12 +4,12 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/test/bootstrap/navigation_drawer/navigaion_drawer.css" />
 <script src="/test/bootstrap/navigation_drawer/navigation_drawer.js"></script>
 <input type="hidden" value="<?php echo $_SESSION['csrf_token'] ?? null; ?>" id="csrf-token">
-<div class="navigation-drawer" id="navigation-drawer">
+<div class="navigation-drawer" id="navigation-drawer" style="z-index: 999;">
   <div class="navigation-menu">
     <div class="user-details">
       <div class="user-image">
         <a href="/test/user/portal/" id="user-icon-btn" style="color: white; text-decoration: none">
-          <img src="/test/icons/user-96.png" alt="" height="96" width="96" style="margin-left: 10px; color: white" />
+          <img src="/test/icons/user-96.png" id="user-avatar" alt="" height="96" width="96" style="margin-left: 10px; color: white" />
         </a>
       </div>
       <div class="user-info" id="user-info" style="color: white">
@@ -51,6 +51,7 @@
         </div>
       </a>
       <?php
+      // echo $_SESSION['isLoggedin'];
       if ($_SESSION['isLoggedin'] ?? false) {
       ?>
         <a href="/test/user/my-account/">

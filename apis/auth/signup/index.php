@@ -3,10 +3,10 @@ include "../../connect.php";
 include "../../jwt/generate-jwt.php";
 include "../../jwt/check-csrf.php";
 
-$received_csrf_token = $_SERVER['HTTP_X_CSRFTOKEN'] ?? null;
-if (!checkCSRF($received_csrf_token)) {
-    return;
-}
+// $received_csrf_token = $_SERVER['HTTP_X_CSRFTOKEN'] ?? null;
+// if (!checkCSRF($received_csrf_token)) {
+//     return;
+// }
 
 $data = json_decode(file_get_contents('php://input'), true);
 $username = $data['username'] ?? null;

@@ -82,7 +82,7 @@ function is_jwt_valid($jwt, $returnValue = false)
         if (!$isValidToken) {
             return json_encode(array("status" => false, "message" => $message ?? "Something went wrong in server", "code" => $code, "http_code" => $http_code));
         } else {
-            return json_encode(array("status" => true, "message" => $message ?? "Something went wrong in server", "code" => $code, "http_code" => $http_code, "user_id" => $payload_decoded->users_id));
+            return json_encode(array("status" => true, "message" => $message ?? "Something went wrong in server", "code" => $code, "http_code" => $http_code, "user_id" => $payload_decoded->users_id, "refresh_token" => $payload_decoded->ref_token));
         }
     }
 }

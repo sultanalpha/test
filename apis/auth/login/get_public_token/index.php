@@ -2,10 +2,10 @@
 include "../../../jwt/check-csrf.php";
 include "../../../connect.php";
 
-$received_csrf_token = $_SERVER['HTTP_X_CSRFTOKEN'] ?? null;
-if (!checkCSRF($received_csrf_token)) {
-    return;
-}
+// $received_csrf_token = $_SERVER['HTTP_X_CSRFTOKEN'] ?? null;
+// if (!checkCSRF($received_csrf_token)) {
+//     return;
+// }
 
 $configargs = array(
     "config" => "C:/xampp/php/extras/openssl/openssl.cnf",

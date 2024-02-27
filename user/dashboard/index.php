@@ -30,6 +30,7 @@ if (!$isLoggedin) {
                         localStorage.removeItem("username");
                         localStorage.removeItem("useremail");
                         localStorage.removeItem("createdtime");
+                        localStorage.removeItem("usersavatar");
                         window.location = "../../";
                     }
                 });

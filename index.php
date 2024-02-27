@@ -21,9 +21,10 @@ if (!$isLoggedin) {
 <body dir="ltr">
   <?php
   $server_root = $_SERVER['DOCUMENT_ROOT'];
-  include("$server_root/test/bootstrap/navigation_drawer/navigation_drawer.php");
+  include("$server_root/test/bootstrap/loading/loading.html");
   include("$server_root/test/bootstrap/bottom_btns/bottom_btns.html");
   include("$server_root/test/bootstrap/top_content/top_content.html");
+  include("$server_root/test/bootstrap/navigation_drawer/navigation_drawer.php");
   ?>
   <div class="body-content" style="margin-top: 50px">
     <h2 id="welcome_txt"></h2>

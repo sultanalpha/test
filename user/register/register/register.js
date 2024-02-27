@@ -1,4 +1,4 @@
-function registerRequest(
+async function registerRequest(
   email,
   username,
   password,
@@ -6,6 +6,7 @@ function registerRequest(
   publicIP,
   csrf_token
 ) {
+  $("#server_txt").hide();
   var json = JSON.stringify({
     username: username,
     password: password,
@@ -13,7 +14,7 @@ function registerRequest(
     confirm_password: confirm_password,
     public_ip: publicIP,
   });
-  $.ajax({
+  await $.ajax({
     type: "POST",
     url: "/test/apis/auth/signup/",
     data: json,
@@ -24,6 +25,8 @@ function registerRequest(
       var statusCode = jqXHR.status;
       var response = JSON.parse(jqXHR.responseText);
       if (statusCode == 200) {
+        $("#server_txt").show();
+        $("#server_txt").css("color", "green");
         $("#server_txt").text(response["Message"]);
         if (response["token"] != null) {
           localStorage.setItem("token", response["token"]);
@@ -37,6 +40,7 @@ function registerRequest(
       $("#server_txt").text(response["Message"]);
     },
     error: function (response, textStatus, jqXHR) {
+      $("#server_txt").show();
       $("#server_txt").text(JSON.parse(response.responseText)["Message"]);
     },
   });

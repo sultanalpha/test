@@ -1,41 +1,80 @@
-.top-content{
-    height: 50px;
-    background-color: rgb(190, 190, 255);
-    display: flex;
-}
-.body-content{
-    text-align: center;
+* {
+  color: white;
 }
 
-.body-content{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 0px 50px;
-    margin-top: 50px;
-
+.top-content {
+  height: 50px;
+  background-color: rgb(190, 190, 255);
+  display: flex;
 }
-.body-content .input-data{
-    width: 100%;
-}
-.body-content .input-data input{
-    /* margin-top: 10px; */
-    border-radius: 5px;
-    width: 75%;
-    border: 1px solid black;
-    height: 30px;
-    padding: 0px 10px;
-}
-.body-content button{
-    margin-top: 20px;
-    width: 75%;
+.body-content {
+  text-align: center;
 }
 
-.body-content .input-password, .body-content .input-confirmpassword {
-    position: relative;
+.body-content .register-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 50px;
 }
-.body-content .input-password img, .body-content .input-confirmpassword img {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
+.body-content .input-data {
+  width: 100%;
+}
+.body-content .register-form .input-data {
+  position: relative;
+}
+.body-content .register-form .input-data label {
+  position: absolute;
+  top: 50%;
+  /* left: 13%; */
+  transform: translateY(-50%);
+  transition: 0.2s ease-out;
+  color: black;
+  pointer-events: none;
+}
+
+.body-content .register-form .input-data input:not(:placeholder-shown) + label {
+  top: 0px;
+  font-size: 12px;
+  color: #888;
+}
+
+.body-content .register-form .input-data input {
+  margin: 10px 0px;
+  border-radius: 5px;
+  width: 75%;
+  border: 1px solid black;
+  height: 30px;
+  padding: 0px 10px;
+  color: black;
+}
+
+.body-content .input-password,
+.body-content .input-confirmpassword {
+  position: relative;
+}
+.body-content .input-password img,
+.body-content .input-confirmpassword img {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.register-form {
+  padding: 5px;
+  border: 1px solid #dddddd;
+  backdrop-filter: blur(10px);
+}
+
+.body-content .register-form .register-btn {
+  margin-top: 20px;
+  width: 60%;
+  background-color: #dddddd;
+  border: #dddddd;
+}
+
+.server_txt {
+  padding: 0px 5px;
+  color: red;
+  display: none;
 }

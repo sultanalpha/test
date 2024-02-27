@@ -1,0 +1,13 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* background-color: blue; */
+    z-index: 200;
+    display: none;
+    place-content: center;
+    
+}

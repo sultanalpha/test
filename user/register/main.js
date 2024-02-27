@@ -4,30 +4,49 @@ var isConfirmPasswordShow = false;
 $(document).ready(function () {
   var isEnglish = checkLanguage();
 
+  isEnglish
+    ? $(".body-content .register-form .input-data label").css({
+        left: "13%",
+        right: "",
+      })
+    : $(".body-content .register-form .input-data label").css({
+        right: "13%",
+        left: "",
+      });
+
   $("#local-lang-change-btn").click(function () {
     if (isEnglish) {
       setLang("local/ar_YE.json");
       coreSetLang(false);
       $("body").attr("dir", "rtl");
       localStorage.setItem("local", "AR");
+      $(".body-content .register-form .input-data label").css({
+        right: "13%",
+        left: "",
+      });
     } else {
       setLang("local/en_US.json");
       coreSetLang(true);
       $("body").attr("dir", "ltr");
       localStorage.setItem("local", "EN");
+      $(".body-content .register-form .input-data label").css({
+        left: "13%",
+        right: "",
+      });
     }
     isEnglish = !isEnglish;
   });
 
-  $("#register-btn").click(function (e) {
+  $("#register-btn").click(async function (e) {
     e.preventDefault();
+    $("#loading-screen").css("display", "grid");
     var email = $("#email-placeholder").val();
     var username = $("#username-placeholder").val();
     var password = $("#password-placeholder").val();
     var confirm_password = $("#confirm_password-placeholder").val();
     var csrf_token = $("#csrf-token").val();
 
-    registerRequest(
+    await registerRequest(
       email,
       username,
       password,
@@ -35,17 +54,7 @@ $(document).ready(function () {
       null,
       csrf_token
     );
-    // $.ajax({
-    //   url: "https://api.ipify.org?format=json",
-    //   method: "GET",
-    //   dataType: "json",
-    //   success: function (data) {
-    //     const publicIP = data.ip;
-    //   },
-    //   error: function (error) {
-    //     reject(error);
-    //   },
-    // });
+    $("#loading-screen").css("display", "none");
   });
 
   $("#password-visibility").click(function (e) {

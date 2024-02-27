@@ -1,5 +1,7 @@
 body {
-  background-image: url("/test/images/bg.jpeg");
+  /* background-image: url("/test/images/bg.jpeg"); */
+  background-image: linear-gradient(#2c3039, #262834, #20232C);
+  /* background-color: #363A45; #262834 #20232C */
 }
 
 .local-lang-change-btn{
@@ -15,4 +17,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }

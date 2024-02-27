@@ -7,7 +7,7 @@ $(document).ready(function () {
     if (token !== null) {
       $.ajax({
         type: "GET",
-        url: "/test/apis/user_info/",
+        url: "/test/apis/users/user_info/",
         headers: {
           Auth: token,
           "X-Csrftoken": csrf_token,
@@ -27,6 +27,13 @@ $(document).ready(function () {
             localStorage.setItem("createdtime", userInfo["created_time"]);
             $("#login_button").attr("href", "/test/user/dashboard");
             $("#user-icon-btn").attr("href", "/test/user/dashboard");
+            $("#user-avatar").attr("src", "/test/icons/" + userInfo['users_avatar']);
+            $("#my-account-user-avatar").attr("src", "/test/icons/" + userInfo['users_avatar']);
+            localStorage.setItem("usersavatar", userInfo["users_avatar"]);
+
+            
+            // Add username to "My account" page input with special ID. 
+            $("#username-field").val(userInfo["users_name"]);
           }
         },
         error: function (response, textStatus, jqXHR) {
