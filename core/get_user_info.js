@@ -62,6 +62,7 @@ $(document).ready(function () {
                     tries++;
                     getUserInfo();
                     getTests();
+                    connectedDeivces();
                   } else {
                     alert("Something went wrong");
                     localStorage.removeItem("token");

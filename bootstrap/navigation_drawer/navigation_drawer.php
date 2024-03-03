@@ -51,6 +51,7 @@
         </div>
       </a>
       <?php
+      // session_start();
       // echo $_SESSION['isLoggedin'];
       if ($_SESSION['isLoggedin'] ?? false) {
       ?>

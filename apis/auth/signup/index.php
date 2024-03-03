@@ -2,6 +2,7 @@
 include "../../connect.php";
 include "../../jwt/generate-jwt.php";
 include "../../jwt/check-csrf.php";
+// session_start();
 
 // $received_csrf_token = $_SERVER['HTTP_X_CSRFTOKEN'] ?? null;
 // if (!checkCSRF($received_csrf_token)) {
@@ -18,7 +19,11 @@ $confirm_password = $data['confirm_password'] ?? null;
 // $ipAddress = curl_get_contents('https://api.ipify.org');
 $ipAddress = $_SERVER['REMOTE_ADDR'];
 
-if(checkNigga($user_email)) {
+// if(checkNigga($user_email) || checkNigga($username)) {
+//     echo_json(400, "Bad request bro", "No nigga bro please :) you are not nigga");
+//     return;
+// }
+if (checkNigga($username)) {
     echo_json(400, "Bad request bro", "No nigga bro please :) you are not nigga");
     return;
 }

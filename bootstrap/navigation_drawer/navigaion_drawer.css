@@ -9,8 +9,11 @@
 }
 
 .navigation-menu {
-  width: 75%;
+  width: 90%;
   background-color: rgb(167, 167, 255);
+}
+.navigation-empty {
+  width: 10%;
 }
 
 .navigation-menu .user-details {
@@ -41,10 +44,6 @@
 .navigation-menu .navigation-items a {
   text-decoration: none;
   color: white;
-}
-
-.navigation-empty {
-  width: 25%;
 }
 
 #copyright-txt {

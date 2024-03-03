@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Kuwait');
 
 $dsn = "mysql:host=localhost;dbname=sultan";
-$pass = "";
+$pass = "Sultan@20020408";
 $user = "root";
 $option = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8"

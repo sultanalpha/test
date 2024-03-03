@@ -1,0 +1,37 @@
+.input-data {
+  position: relative;
+}
+
+.input-data label {
+  position: absolute;
+  top: 50%;
+  /* left: 13%; */
+  transform: translateY(-50%);
+  transition: 0.2s ease-out;
+  color: black;
+  pointer-events: none;
+}
+.input-data input:not(:placeholder-shown) + label {
+  top: 0px;
+  font-size: 12px;
+  color: #888;
+}
+
+.input-data {
+  width: 100%;
+}
+.input-data input {
+  margin: 10px 0px;
+  border-radius: 5px;
+  width: 75%;
+  border: 1px solid black;
+  height: 30px;
+  padding: 0px 10px;
+  color: black;
+}
+
+.input-password img {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}

@@ -69,7 +69,8 @@
 .body-content .register-form .register-btn {
   margin-top: 20px;
   width: 60%;
-  background-color: #dddddd;
+  background-color: #ffc000;
+  border-radius: 10px;
   border: #dddddd;
 }
 

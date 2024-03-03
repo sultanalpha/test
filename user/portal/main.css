@@ -1,12 +1,6 @@
 * {
   color: white;
 }
-
-.top-content {
-  height: 50px;
-  background-color: rgb(190, 190, 255);
-  display: flex;
-}
 .body-content {
   text-align: center;
 }
@@ -15,56 +9,17 @@
   align-items: center;
   flex-direction: column;
   margin: 0px 50px;
-}
-
-/* To put the eye icon for show and hide password */
-.body-content .login-form .input-data {
-  position: relative;
-}
-
-.body-content .login-form .input-data label {
-  position: absolute;
-  top: 50%;
-  /* left: 13%; */
-  transform: translateY(-50%);
-  transition: 0.2s ease-out;
-  color: black;
-  pointer-events: none;
-}
-.body-content .login-form .input-data input:not(:placeholder-shown) + label {
-  top: 0px;
-  font-size: 12px;
-  color: #888;
-}
-
-.body-content .login-form .input-password img {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-.body-content .login-form .input-data {
-  width: 100%;
-}
-.body-content .login-form .input-data input {
-  margin: 10px 0px;
-  border-radius: 5px;
-  width: 75%;
-  border: 1px solid black;
-  height: 30px;
-  padding: 0px 10px;
-  color: black;
-}
-.body-content .login-form .login-btn {
-  margin-top: 20px;
-  width: 60%;
-  background-color: #dddddd;
-  border: #dddddd;
-}
-
-.login-form {
   padding: 5px;
   border: 1px solid #dddddd;
   backdrop-filter: blur(10px);
+}
+
+.body-content .login-form .login-btn {
+  margin-top: 20px;
+  width: 60%;
+  background-color: #ffc000;
+  border-radius: 10px;
+  border: #dddddd;
 }
 
 .server_txt {

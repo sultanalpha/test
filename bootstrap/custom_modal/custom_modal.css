@@ -1,0 +1,30 @@
+#custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100dvh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  z-index: 1000;
+}
+
+#modal-content {
+  background-color: rgb(196, 185, 185);
+  border-radius: 10px;
+  width: 100%;
+  margin: 50px;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+#close-modal {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}

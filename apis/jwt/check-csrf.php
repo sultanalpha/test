@@ -1,7 +1,7 @@
 <?php
+session_start();
 function checkCSRF($received_csrf_token = null)
 {
-    session_start();
 
     $csrf_token = $_SESSION['csrf_token'] ?? null;
 

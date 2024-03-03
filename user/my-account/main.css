@@ -9,9 +9,6 @@
   flex-direction: column;
   /* align-items: center; */
 }
-.bodyContent h2 {
-  color: black !important;
-}
 
 .bodyContent input {
   width: 80%;
@@ -50,6 +47,24 @@
   padding: 2px;
 }
 
+.section {
+  position: relative;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 1px;
+  background-color: rgb(61, 57, 65);
+}
+
+.section h4 {
+  margin: 22px 0px 10px 0px;
+}
 .section .content {
   padding: 5px 10px;
   border-radius: 5px;
@@ -72,17 +87,39 @@
 }
 
 .devices-section .devices-content .device-item {
-    display: flex;
-    background-color: rgba(66, 62, 70, 0.9);
-    margin: 5px 0px;
-    padding: 5px 10px;
+  display: flex;
+  background-color: rgba(66, 62, 70, 0.9);
+  margin: 5px 0px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.devices-section .devices-content .device-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 1px;
+  background-color: rgb(82, 77, 87);
 }
 .devices-section .devices-content .device-item .device-item-info {
   padding: 0px 5px;
   margin: 0px 5px;
 }
 .devices-section .devices-content .device-item .device-item-info p {
- margin: 0px;   
+  margin: 0px;
+}
+
+.devices-section .devices-content .device-item .logout-btn {
+  margin-left: auto;
+  background-color: rgba(82, 77, 87, 0.1);
+  border-radius: 5px;
+  padding: 0px 10px;
+}
+.devices-section .devices-content .device-item .logout-btn p {
+  color: red;
 }
 
 .settings-section .settings-content {
@@ -93,14 +130,10 @@
   color: red;
 }
 
-
-
-
 .device-current-session::after {
   content: " (Current Session)";
   color: rgb(123, 116, 131);
   font-size: 12px;
-  
 }
 
 /* .devices-section .devices-content .device-item .device-item-info .device-type::before {
@@ -111,4 +144,24 @@
 }
 .devices-section .devices-content .device-item .device-item-info .device-model::before {
     content: "Device model: ";
+} */
+
+.not-working {
+  color: grey !important;
+}
+.not-working::after {
+  content: " (This option is not available yet)";
+  font-size: 8px;
+}
+
+#logout-device {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  /* backdrop-filter: blur(10px); */
+}
+
+/* .custom-modal .modal-content .confirm-logout:focus {
+  
 } */

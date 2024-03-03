@@ -15,8 +15,14 @@ if (!$isLoggedin) {
   <title>Your account</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/test/bootstrap/custom_modal/custom_modal.css'>
   <script src="../../libraries/jquery_3.7.1.js"></script>
+  <script src="../../libraries/jsencrypt.min.js"></script>
+  <script src="../../locals.js"></script>
+  <script src="../../check_langs.js"></script>
+  <script src="locals.js"></script>
   <script src='main.js'></script>
+  <script src='requests/request.js'></script>
 </head>
 
 <body>
@@ -25,6 +31,7 @@ if (!$isLoggedin) {
   include("$server_root/test/bootstrap/navigation_drawer/navigation_drawer.php");
   include("$server_root/test/bootstrap/bottom_btns/bottom_btns.html");
   include("$server_root/test/bootstrap/top_content/top_content.html");
+  include("$server_root/test/bootstrap/custom_input/custom_input.php");
   ?>
 
   <div class="bodyContent">
@@ -50,7 +57,7 @@ if (!$isLoggedin) {
         <p id="user-email" style="margin: 10px;"></p>
         <div class="change-email">
           <button>Change email</button>
-          <button>Add backup email</button>
+          <button disabled class="not-working">Add backup email</button>
         </div>
       </div>
     </div>
@@ -66,10 +73,9 @@ if (!$isLoggedin) {
       <h4>Settings: </h4>
       <div class="settings-content content">
         <button style="color: var(--buttonColor) !important;">Change password</button>
-        <button>Logout</button>
-        <button>Logout from all devices</button>
+        <button id="logout-only">Logout</button>
+        <button id="logout-all">Logout from all devices</button>
         <button>Delete account</button>
-
       </div>
     </div>
 
@@ -78,8 +84,20 @@ if (!$isLoggedin) {
     <input type="password" placeholder="New password" id="new-password">
     <input type="password" placeholder="Confirm new password" id="confirm-new-password">
   </div>
+
+  <!-- To create a custom modal call this div with the id and call the css link to the modal -->
+  <div class="custom-modal" id="custom-modal" style="display: none;">
+    <div class="modal-content" id="modal-content">
+      <img src="/test/icons/icons8-close-30.png" id="close-modal" height="24" width="24">
+      <div id="logout-device">
+        <?php
+        setInput("password", "password");
+        ?>
+        <br><br>
+        <button id="logout-btn">Logout</button>
+      </div>
+    </div>
+  </div>
 </body>
-<script src="../../locals.js"></script>
-<script src="../../check_langs.js"></script>
 
 </html>
